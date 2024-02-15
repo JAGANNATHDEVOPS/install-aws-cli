@@ -1,0 +1,20 @@
+---
+# tasks file for install-aws-cli
+- name: Download a file
+  get_url:
+    url: "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip"
+    dest: "/home/ubuntu"
+- name: INSTALLING unzip PACKAGES
+  apt:
+    name: unzip
+    state: present
+- name: Unarchive a file 
+  unarchive:
+    src: /home/ubuntu/awscli-exe-linux-x86_64.zip
+    dest: /home/ubuntu/
+- name: Install AWS CLI
+  shell:
+    cmd: /home/ubuntu//aws/install
+- name: Install AWS CLI
+  shell:
+    cmd: aws s3 ls
